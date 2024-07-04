@@ -1,0 +1,25 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: shyam2615
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: atg-task1
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: emailServerless
+
+provider:
+  name: aws
+  runtime: python3.9
+  environment:
+    SMTP_USERNAME: ankitsm38@gmail.com
+    SMTP_PASSWORD: grhp vjil zrat qnkt
+
+
+# plugins:
+#   - serverless-offline
+
+functions:
+  sendEmail:
+    handler: handler.send_email
+    events:
+      - http:
+          path: send-email
+          method: post
